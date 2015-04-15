@@ -1,0 +1,12 @@
+#edit-mode: -*- python -*-
+#coding:utf8
+
+CXX('g++')
+CXXFLAGS('-D_GNU_SOURCE -D__STDC_LIMIT_MACROS -g -pipe -W -Wall -fPIC -fno-omit-frame-pointer')
+LDFLAGS('-ldl -lpthread -lm -lrt')
+
+DEP('gflags', '1.0.0')
+DEP('glog', '1.0.0')
+DEP('hiredis', '1.0.0')
+
+STATIC_LIB('redis_proxy', GLOB('./redis_proxy.cpp'), GLOB('./redis_proxy.h'))
